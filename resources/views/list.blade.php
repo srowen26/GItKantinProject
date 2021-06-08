@@ -9,6 +9,7 @@
 <p>{{$menu->id}}</p>
 <p>{{$menu->list[0]}}</p>
 @endforeach
+{{-- Comment --}}
 </body>
 
 
