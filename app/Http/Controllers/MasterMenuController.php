@@ -40,16 +40,16 @@ class MasterMenuController extends Controller
 
         $input = $request->all();
         $input['hari'] = $request->input('hari');
-        //MasterMenu::create($input);
+        MasterMenu::create($input);
 
         
-        MasterMenu::create([
-            'kode_katering'=> $request->kode_katering,
-            'hari'=> $input,
-            'menu_utama'=> $request->menu_utama,
-            'menu_add_on'=> $request->menu_add_on,
-            'harga_add_on'=> $request->harga_add_on,
-        ]);
+        // MasterMenu::create([
+        //     'kode_katering'=> $request->kode_katering,
+        //     'hari'=> $input,
+        //     'menu_utama'=> $request->menu_utama,
+        //     'menu_add_on'=> $request->menu_add_on,
+        //     'harga_add_on'=> $request->harga_add_on,
+        // ]);
         
 
         return redirect('/kantin/menu')->with('status', 'Add successful');

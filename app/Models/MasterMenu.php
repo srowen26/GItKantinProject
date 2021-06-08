@@ -18,6 +18,18 @@ class MasterMenu extends Model
         'menu_add_on',
         'harga_add_on',
     ];
+
+    public function setCategoryAttribute($value)
+    {
+        $this->attributes['hari'] = json_encode($value);
+    }
+
+    public function getCategoryAttribute($value)
+    {
+        return $this->attributes['hari'] = json_decode($value);
+    }
+
+
     /*
     protected $table='test';
     protected $fillable = [

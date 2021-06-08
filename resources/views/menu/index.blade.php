@@ -53,7 +53,10 @@
                     <tr>
                     <th scope="row">{{$menu->id}}</th>
                         <td>{{$menu->kode_katering}}</td>
-                        <td>{{$menu->hari}}></td>  
+                        <td>@foreach($menu->hari as $value)
+                                {{$value}},
+                            @endforeach
+                        </td>  
                         <td>{{$menu->menu_utama}}</td>
                         <td>{{$menu->menu_add_on}}</td>
                         <td>{{$menu->harga_add_on}}</td>
