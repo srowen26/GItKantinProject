@@ -86,14 +86,16 @@ class MasterMenuController extends Controller
      */
     public function update(Request $request, MasterMenu $menu)
     {
-        MasterMenu::where('id',$menu->id)
-            ->update([
-            'kode_katering'=> $request->kode_katering,
-            'hari'=> $request->hari,
-            'menu_utama'=> $request->menu_utama,
-            'menu_add_on'=> $request->menu_add_on,
-            'harga_add_on'=> $request->harga_add_on,
-        ]);
+        // MasterMenu::where('id',$menu->id)
+        //     ->update([
+        //     'kode_katering'=> $request->kode_katering,
+        //     'hari'=> $request->hari,
+        //     'menu_utama'=> $request->menu_utama,
+        //     'menu_add_on'=> $request->menu_add_on,
+        //     'harga_add_on'=> $request->harga_add_on,
+        // ]);
+
+        $menu->update($request->all());
         return redirect()->route('menu.index')->with('status', 'Update successful');
     
     }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\MasterBagianController;
 use App\Http\Controllers\MasterMenuController;
 use App\Http\Controllers\MasterVendorController;
+use App\Http\Controllers\MasterDataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Route::get('/kantin', function () {
 Route::resource('/kantin/vendor',MasterVendorController::class);
 Route::resource('menu',MasterMenuController::class);
 Route::resource('/kantin/bagian',MasterBagianController::class);
+Route::resource('/kantin/item',MasterDataController::class);
 
 // Route::get('/kantin/vendor',[MasterVendorController::class,'index']); 
 // Route::get('/kantin/vendor/edit/{vendor}',[MasterVendorController::class,'edit']); 
