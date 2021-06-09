@@ -20,23 +20,27 @@ Route::get('/kantin', function () {
     return view('index');
 });
 
-Route::get('/kantin/vendor',[MasterVendorController::class,'index']); 
-Route::get('/kantin/vendor/edit/{vendor}',[MasterVendorController::class,'edit']); 
-Route::get('/kantin/vendor/add',[MasterVendorController::class,'create']); 
-Route::post('/kantin/vendor',[MasterVendorController::class,'store']); 
-Route::delete('/kantin/vendor/delete/{vendor}',[MasterVendorController::class,'destroy']); 
-Route::patch('/kantin/vendor/{vendor}',[MasterVendorController::class,'update']); 
+Route::resource('/kantin/vendor',MasterVendorController::class);
+Route::resource('menu',MasterMenuController::class);
+Route::resource('/kantin/bagian',MasterBagianController::class);
 
-Route::get('/kantin/menu',[MasterMenuController::class,'index']); 
-Route::get('/kantin/menu/edit/{menu}',[MasterMenuController::class,'edit']); 
-Route::get('/kantin/menu/add',[MasterMenuController::class,'create']); 
-Route::post('/kantin/menu',[MasterMenuController::class,'store']); 
-Route::delete('/kantin/menu/delete/{menu}',[MasterMenuController::class,'destroy']); 
-Route::patch('/kantin/menu/{menu}',[MasterMenuController::class,'update']); 
+// Route::get('/kantin/vendor',[MasterVendorController::class,'index']); 
+// Route::get('/kantin/vendor/edit/{vendor}',[MasterVendorController::class,'edit']); 
+// Route::get('/kantin/vendor/add',[MasterVendorController::class,'create']); 
+// Route::post('/kantin/vendor',[MasterVendorController::class,'store']); 
+// Route::delete('/kantin/vendor/delete/{vendor}',[MasterVendorController::class,'destroy']); 
+// Route::patch('/kantin/vendor/{vendor}',[MasterVendorController::class,'update']); 
 
-Route::get('/kantin/bagian',[MasterBagianController::class,'index']); 
-Route::get('/kantin/bagian/edit/{bagian}',[MasterBagianController::class,'edit']); 
-Route::get('/kantin/bagian/add',[MasterBagianController::class,'create']); 
-Route::post('/kantin/bagian',[MasterBagianController::class,'store']); 
-Route::delete('/kantin/bagian/delete/{bagian}',[MasterBagianController::class,'destroy']); 
-Route::patch('/kantin/bagian/{bagian}',[MasterBagianController::class,'update']); 
+// Route::get('/kantin/menu',[MasterMenuController::class,'index']); 
+// Route::get('/kantin/menu/edit/{menu}',[MasterMenuController::class,'edit']); 
+// Route::get('/kantin/menu/add',[MasterMenuController::class,'create']); 
+// Route::post('/kantin/menu',[MasterMenuController::class,'store']); 
+// Route::delete('/kantin/menu/delete/{menu}',[MasterMenuController::class,'destroy']); 
+// Route::patch('/kantin/menu/{menu}',[MasterMenuController::class,'update']); 
+
+// Route::get('/kantin/bagian',[MasterBagianController::class,'index']); 
+// Route::get('/kantin/bagian/edit/{bagian}',[MasterBagianController::class,'edit']); 
+// Route::get('/kantin/bagian/add',[MasterBagianController::class,'create']); 
+// Route::post('/kantin/bagian',[MasterBagianController::class,'store']); 
+// Route::delete('/kantin/bagian/delete/{bagian}',[MasterBagianController::class,'destroy']); 
+// Route::patch('/kantin/bagian/{bagian}',[MasterBagianController::class,'update']); 

@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class MasterMenu extends Model
 {
-    use HasFactory;
-    
     protected $table='master_all_menu';
 
     protected $fillable = [
@@ -19,16 +17,19 @@ class MasterMenu extends Model
         'harga_add_on',
     ];
 
-    public function setCategoryAttribute($value)
+    public function setHariAttribute($value)
     {
         $this->attributes['hari'] = json_encode($value);
     }
 
-    public function getCategoryAttribute($value)
+    public function getHariAttribute($value)
     {
         return $this->attributes['hari'] = json_decode($value);
     }
-
+    
+    protected $casts = [
+        'hari' => 'json',
+    ];
 
     /*
     protected $table='test';

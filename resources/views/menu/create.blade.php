@@ -25,38 +25,38 @@
     <div class="row">
         <div class="col-10">
             <h2 class="mt-2">Tambah Master Menu</h2>
-            <form method="POST" action="/kantin/menu">
+            <form method="POST" action="{{ route('menu.store') }}"  enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                     <label for="kode_katering" class="form-label">Kode Katering</label>
                     <input type="text" name="kode_katering" class="form-control"  id="kode_katering">
                 </div>
                 <div class="mb-3">
-                    <label for="hari" class="form-label">Hari</label>
+                    <label class="form-label">Hari</label>
                     <br/>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" id="senin" value="senin">
-                        <label class="form-check-label" for="senin">Senin</label>
+                        <input class="form-check-input" type="checkbox" name="hari[]"  value="senin">
+                        <label class="form-check-label" >Senin</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" id="selasa" value="selasa">
-                        <label class="form-check-label" for="selasa">Selasa</label>
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="selasa">
+                        <label class="form-check-label" >Selasa</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" id="rabu" value="rabu">
-                        <label class="form-check-label" for="rabu">Rabu</label>
+                        <input class="form-check-input" type="checkbox" name="hari[]"  value="rabu">
+                        <label class="form-check-label" >Rabu</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" id="kamis" value="kamis">
-                        <label class="form-check-label" for="kamis">Kamis</label>
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="kamis">
+                        <label class="form-check-label" >Kamis</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" id="jumat" value="jumat">
-                        <label class="form-check-label" for="jumat">Jumat</label>
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="jumat">
+                        <label class="form-check-label" >Jumat</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" id="sabtu" value="sabtu">
-                        <label class="form-check-label" for="sabtu">Sabtu</label>
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="sabtu">
+                        <label class="form-check-label" >Sabtu</label>
                     </div>
                 </div>
                 <div class="mb-3">

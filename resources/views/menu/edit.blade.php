@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-10">
             <h2 class="mt-2">Edit Master Menu</h2>
-            <form method="POST" action="/kantin/menu/{{$menu->id}}">
+            <form method="POST" action="{{ route('menu.update', $menu->id) }}">
             @method('patch')
             @csrf
             <div class="mb-3">
@@ -33,8 +33,58 @@
                     <input type="text" name="kode_katering" class="form-control" value="{{$menu->kode_katering}}" id="kode_katering" >
                 </div>
                 <div class="mb-3">
-                    <label for="hari" class="form-label">Hari</label>
-                    <input type="text" name="hari" class="form-control" value="{{$menu->hari}}" id="hari">
+                <label class="form-label">Hari</label>
+                    <br/>
+                    @foreach($menu->hari as $value)
+                    <div class="form-check form-check-inline">
+                        @if ($value === 'senin')
+                        <input class="form-check-input" type="checkbox" name="hari[]"  value="$value" checked>
+                        @else
+                        <input class="form-check-input" type="checkbox" name="hari[]"  value="senin">
+                        @endif
+                        <label class="form-check-label" >Senin</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        @if ($value === 'selasa')
+                        <input class="form-check-input" type="checkbox" name="hari[]"  value="$value" checked>
+                        @else
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="selasa">
+                        @endif
+                        <label class="form-check-label" >Selasa</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        @if ($value === 'rabu')
+                        <input class="form-check-input" type="checkbox" name="hari[]"  value="$value" checked>
+                        @else
+                        <input class="form-check-input" type="checkbox" name="hari[]"  value="rabu">
+                        @endif
+                        <label class="form-check-label" >Rabu</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        @if ($value === 'kamis')
+                        <input class="form-check-input" type="checkbox" name="hari[]"  value="$value" checked>
+                        @else
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="kamis">
+                        @endif
+                        <label class="form-check-label" >Kamis</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        @if ($value === 'jumat')
+                        <input class="form-check-input" type="checkbox" name="hari[]"  value="$value" checked>
+                        @else
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="jumat">
+                        @endif
+                        <label class="form-check-label" >Jumat</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        @if ($value === 'sabtu')
+                        <input class="form-check-input" type="checkbox" name="hari[]"  value="$value" checked>
+                        @else
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="sabtu">
+                        @endif
+                        <label class="form-check-label" >Sabtu</label>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="mb-3">
                     <label for="menu_utama" class="form-label">Menu Utama</label>

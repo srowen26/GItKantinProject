@@ -61,8 +61,8 @@
                         <td>{{$menu->menu_add_on}}</td>
                         <td>{{$menu->harga_add_on}}</td>
                         <td>
-                            <a href="/kantin/menu/edit/{{$menu->id}}" class="btn btn-info">Ubah</a>
-                            <form method="POST" action="/kantin/menu/delete/{{$menu->id}}">
+                            <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-info">Ubah</a>
+                            <form method="POST" action="{{ route('menu.destroy',$menu->id) }}">
                             @method('delete')
                             @csrf
                              <button type="submit" class="btn btn-warning">Hapus</button> 
@@ -72,7 +72,7 @@
                     @endforeach
                 </tbody>
             </table>
-             <a href="/kantin/menu/add" class="btn btn-success">+</a> 
+             <a href="{{ route('menu.create') }}" class="btn btn-success">+</a> 
         </div>
     </div>
 </div>

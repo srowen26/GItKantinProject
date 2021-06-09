@@ -15,7 +15,7 @@ class MasterMenuController extends Controller
     public function index()
     {
         $menu = MasterMenu::all();
-        return view('menu.index', ['menu'=>$menu]);
+        return view('menu.index', compact('menu'));
         //return view('list', ['menu'=>$menu]);
     }
 
@@ -52,7 +52,7 @@ class MasterMenuController extends Controller
         // ]);
         
 
-        return redirect('/kantin/menu')->with('status', 'Add successful');
+        return redirect()->route('menu.index')->with('status', 'Add successful');
     }
 
     /**
@@ -94,7 +94,7 @@ class MasterMenuController extends Controller
             'menu_add_on'=> $request->menu_add_on,
             'harga_add_on'=> $request->harga_add_on,
         ]);
-        return redirect('/kantin/menu')->with('status', 'Update successful');
+        return redirect()->route('menu.index')->with('status', 'Update successful');
     
     }
 
@@ -107,6 +107,6 @@ class MasterMenuController extends Controller
     public function destroy(MasterMenu $menu)
     {
         MasterMenu::destroy($menu->id);
-        return redirect('/kantin/menu')->with('status', 'Delete successful');
+        return redirect()->route('menu.index')->with('status', 'Delete successful');
     }
 }
