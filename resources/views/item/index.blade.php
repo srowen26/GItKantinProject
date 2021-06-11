@@ -57,7 +57,7 @@
                     <tr>
                     <th scope="row">{{$itm->id}}</th>
                         <td>
-                        @foreach ($data->listmenu as $dat)
+                        @foreach ($data as $dat)
                           {{$dat->listmenu}}
                         @endforeach
                         </td>
