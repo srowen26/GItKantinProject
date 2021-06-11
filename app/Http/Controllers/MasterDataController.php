@@ -47,7 +47,7 @@ class MasterDataController extends Controller
      * @param  \App\Models\MasterData  $masterData
      * @return \Illuminate\Http\Response
      */
-    public function show(MasterData $masterData)
+    public function show(MasterData $data)
     {
         return view('data.edit', compact('data'));
     }

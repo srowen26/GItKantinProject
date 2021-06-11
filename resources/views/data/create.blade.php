@@ -24,20 +24,12 @@
 <div class="container">
     <div class="row">
         <div class="col-10">
-            <h2 class="mt-2">Tambah Bagian</h2>
-            <form method="POST" action="/kantin/bagian">
+            <h2 class="mt-2">Tambah Data Menu</h2>
+            <form method="POST" action="{{ route('data.store') }}">
             @csrf
             <div class="mb-3">
-                    <label for="kode_bagian" class="form-label">Kode Bagian</label>
-                    <input type="text" name="kode_bagian" class="form-control"  id="kode_bagian" >
-                </div>
-                <div class="mb-3">
-                    <label for="bagian" class="form-label">Nama Bagian</label>
-                    <input type="text" name="bagian" class="form-control" id="bagian">
-                </div>
-                <div class="mb-3">
-                    <label for="lantai" class="form-label">Lantai</label>
-                    <input type="text" name="lantai" class="form-control" id="lantai">
+                    <label for="listmenu" class="form-label">List Menu</label>
+                    <input type="text" name="listmenu" class="form-control"  id="listmenu" >
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form> 

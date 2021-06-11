@@ -25,20 +25,12 @@
     <div class="row">
         <div class="col-10">
             <h2 class="mt-2">Edit Bagian</h2>
-            <form method="POST" action="/kantin/bagian/{{$bagian->id}}">
+            <form method="POST" action="{{ route('data.update', $data->id) }}">
             @method('patch')
             @csrf
             <div class="mb-3">
-                    <label for="kode_bagian" class="form-label">Kode Bagian</label>
-                    <input type="text" name="kode_bagian" class="form-control" value="{{$bagian->kode_bagian}}" id="kode_bagian" >
-                </div>
-                <div class="mb-3">
-                    <label for="bagian" class="form-label">Umur</label>
-                    <input type="text" name="bagian" class="form-control" value="{{$bagian->bagian}}" id="bagian">
-                </div>
-                <div class="mb-3">
-                    <label for="lantai" class="form-label">Jurusan</label>
-                    <input type="text" name="lantai" class="form-control" value="{{$bagian->lantai}}" id="lantai">
+                    <label for="listmenu" class="form-label">List Menu</label>
+                    <input type="text" name="listmenu" class="form-control" value="{{$data->listmenu}}" id="listmenu" >
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form> 

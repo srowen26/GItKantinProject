@@ -10,6 +10,13 @@ class MasterItem extends Model
     use HasFactory;
     protected $table='master_item';
     protected $fillable = [
+        'menu_id',
         'item_desc',
     ];
+
+    public function data()
+    {
+        return $this->hasOne(MasterData::class);
+    }
+
 }

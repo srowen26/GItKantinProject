@@ -15,7 +15,7 @@ class MasterBagianController extends Controller
     public function index()
     {
         $bagian = MasterBagian::all();
-        return view('bagian.index', ['bagian'=>$bagian]);
+        return view('bagian.index', compact('bagian'));
     }
 
     /**
@@ -36,12 +36,9 @@ class MasterBagianController extends Controller
      */
     public function store(Request $request)
     {
-        MasterBagian::create([
-            'kode_bagian'=> $request->kode_bagian,
-            'bagian'=> $request->bagian,
-            'lantai'=> $request->lantai,
-        ]);
-        return redirect('/kantin/bagian')->with('status', 'Add successful');
+        $input = $request->all();
+        MasterBagian::create($input);
+        return redirect()->route('bagian.index')->with('status', 'Add successful');
     }
 
     /**
@@ -75,13 +72,14 @@ class MasterBagianController extends Controller
      */
     public function update(Request $request, MasterBagian $bagian)
     {
-        MasterBagian::where('id',$bagian->id)
-            ->update([
-            'kode_bagian'=> $request->kode_bagian,
-            'bagian'=> $request->bagian,
-            'lantai'=> $request->lantai,
-        ]);
-        return redirect('/kantin/bagian')->with('status', 'Update successful');
+        // MasterBagian::where('id',$bagian->id)
+        //     ->update([
+        //     'kode_bagian'=> $request->kode_bagian,
+        //     'bagian'=> $request->bagian,
+        //     'lantai'=> $request->lantai,
+        // ]);
+        $bagian->update($request->all());
+        return redirect()->route('bagian.index')->with('status', 'Update successful');
     }
 
     /**
@@ -93,6 +91,6 @@ class MasterBagianController extends Controller
     public function destroy(MasterBagian $bagian)
     {
         MasterBagian::destroy($bagian->id);
-        return redirect('/kantin/bagian')->with('status', 'Delete successful');
+        return redirect()->route('bagian.index')->with('status', 'Delete successful');
     }
 }

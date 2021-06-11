@@ -38,20 +38,18 @@
                 <thead class="table-dark">
                     <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Menu</th>
+                    <th scope="col">List Menu</th>
                     <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($bagian as $ven)
+                    @foreach ($data as $dat)
                     <tr>
-                    <th scope="row">{{$ven->id}}</th>
-                        <td>{{$ven->kode_bagian }}</td>
-                        <td>{{$ven->bagian}}</td>
-                        <td>{{$ven->lantai}}</td>
+                    <th scope="row">{{$dat->id}}</th>
+                        <td>{{$dat->listmenu}}</td>
                         <td>
-                            <a href="/kantin/bagian/edit/{{$ven->id}}" class="btn btn-info">Ubah</a>
-                            <form method="POST" action="/kantin/bagian/delete/{{$ven->id}}">
+                            <a href="{{ route('data.edit', $dat->id) }}" class="btn btn-info">Ubah</a>
+                            <form method="POST" action="{{ route('data.destroy',$dat->id) }}">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-warning">Hapus</button>
@@ -61,7 +59,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <a href="/kantin/bagian/add" class="btn btn-success">+</a>   
+            <a href="{{ route('data.create') }}" class="btn btn-success">+</a>   
         </div>
     </div>
 </div>

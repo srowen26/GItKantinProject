@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-10">
             <h2 class="mt-2">Tambah Vendor</h2>
-            <form method="POST" action="/kantin/vendor">
+            <form method="POST" action="{{ route('vendor.store') }}">
             @csrf
             <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>

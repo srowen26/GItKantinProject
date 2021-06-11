@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-10">
             <h2 class="mt-2">Tambah Bagian</h2>
-            <form method="POST" action="/kantin/bagian">
+            <form method="POST" action="{{ route('bagian.store') }}">
             @csrf
             <div class="mb-3">
                     <label for="kode_bagian" class="form-label">Kode Bagian</label>

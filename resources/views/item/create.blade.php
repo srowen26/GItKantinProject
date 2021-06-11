@@ -25,19 +25,20 @@
     <div class="row">
         <div class="col-10">
             <h2 class="mt-2">Tambah Bagian</h2>
-            <form method="POST" action="/kantin/bagian">
+            <form method="POST" action="{{ route('item.store') }}">
             @csrf
             <div class="mb-3">
-                    <label for="kode_bagian" class="form-label">Kode Bagian</label>
-                    <input type="text" name="kode_bagian" class="form-control"  id="kode_bagian" >
+                    <label for="menu_id" class="form-label">List Menu</label>
+                    <select class="form-select" name="menu_id" aria-label="Default select example">
+                    <option selected>Daftar Menu</option>
+                    @foreach ($item as $itm)
+                    <option name="menu_id" value="{{$itm->menu_id}}">{{$itm->menu_id}}</option>
+                    @endforeach
+                  </select>
                 </div>
                 <div class="mb-3">
-                    <label for="bagian" class="form-label">Nama Bagian</label>
-                    <input type="text" name="bagian" class="form-control" id="bagian">
-                </div>
-                <div class="mb-3">
-                    <label for="lantai" class="form-label">Lantai</label>
-                    <input type="text" name="lantai" class="form-control" id="lantai">
+                    <label for="item_desc" class="form-label">Deskripsi Item</label>
+                    <input type="text" name="item_desc" class="form-control" id="item_desc">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form> 

@@ -23,6 +23,15 @@
         <li class="nav-item">
           <a class="nav-link" href="/kantin/bagian">Bagian</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Master Data
+          </a>
+          <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="/kantin/data">Data</a></li>
+            <li><a class="dropdown-item" href="/kantin/item">Item</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
@@ -45,15 +54,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($bagian as $ven)
+                    @foreach ($bagian as $bag)
                     <tr>
-                    <th scope="row">{{$ven->id}}</th>
-                        <td>{{$ven->kode_bagian }}</td>
-                        <td>{{$ven->bagian}}</td>
-                        <td>{{$ven->lantai}}</td>
+                    <th scope="row">{{$bag->id}}</th>
+                        <td>{{$bag->kode_bagian}}</td>
+                        <td>{{$bag->bagian}}</td>
+                        <td>{{$bag->lantai}}</td>
                         <td>
-                            <a href="/kantin/bagian/edit/{{$ven->id}}" class="btn btn-info">Ubah</a>
-                            <form method="POST" action="/kantin/bagian/delete/{{$ven->id}}">
+                            <a href="{{ route('bagian.edit', $bag->id) }}" class="btn btn-info">Ubah</a>
+                            <form method="POST" action="{{ route('bagian.destroy', $bag->id) }}">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-warning">Hapus</button>
@@ -63,7 +72,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <a href="/kantin/bagian/add" class="btn btn-success">+</a>   
+            <a href="{{ route('bagian.create')}}" class="btn btn-success">+</a>   
         </div>
     </div>
 </div>

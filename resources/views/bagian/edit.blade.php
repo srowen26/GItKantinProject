@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-10">
             <h2 class="mt-2">Edit Bagian</h2>
-            <form method="POST" action="/kantin/bagian/{{$bagian->id}}">
+            <form method="POST" action="{{ route('bagian.update', $bagian->id) }}">
             @method('patch')
             @csrf
             <div class="mb-3">

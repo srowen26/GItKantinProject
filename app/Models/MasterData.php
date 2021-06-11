@@ -10,6 +10,12 @@ class MasterData extends Model
     use HasFactory;
     protected $table='master_data';
     protected $fillable = [
-        'list_menu',
+        'listmenu',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(MasterItem::class);
+    }
+
 }

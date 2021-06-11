@@ -25,7 +25,9 @@ class MasterItemController extends Controller
      */
     public function create()
     {
-        return view('item.create');
+        $item = MasterItem::all();
+        $item=$item->unique('menu_id');
+        return view('item.create', compact('item'));
     }
 
     /**
@@ -49,7 +51,7 @@ class MasterItemController extends Controller
      * @param  \App\Models\MasterItem  $masterItem
      * @return \Illuminate\Http\Response
      */
-    public function show(MasterItem $masterItem)
+    public function show(MasterItem $item)
     {
         return view('item.edit', compact('item'));
     }
@@ -60,7 +62,7 @@ class MasterItemController extends Controller
      * @param  \App\Models\MasterItem  $masterItem
      * @return \Illuminate\Http\Response
      */
-    public function edit(MasterItem $masterItem)
+    public function edit(MasterItem $item)
     {
         return view('item.edit', compact('item'));
     }

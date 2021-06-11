@@ -16,7 +16,7 @@ class MasterVendorController extends Controller
     public function index()
     {
         $vendor = MasterVendor::all();
-        return view('vendor.index', ['vendor'=>$vendor]);
+        return view('vendor.index', compact('vendor'));
 
     }
 
@@ -38,14 +38,16 @@ class MasterVendorController extends Controller
      */
     public function store(Request $request)
     {
-        MasterVendor::create([
-            'nama'=> $request->nama,
-            'kode'=> $request->kode,
-            'harga_katering_dasar'=> $request->harga_katering_dasar,
-            'add_on'=> $request->add_on,
-            'harga_add_on'=> $request->harga_add_on,
-        ]);
-        return redirect('/kantin/vendor')->with('status', 'Add successful');
+        // MasterVendor::create([
+        //     'nama'=> $request->nama,
+        //     'kode'=> $request->kode,
+        //     'harga_katering_dasar'=> $request->harga_katering_dasar,
+        //     'add_on'=> $request->add_on,
+        //     'harga_add_on'=> $request->harga_add_on,
+        // ]);
+        $input = $request->all();
+        MasterVendor::create($input);
+        return redirect()->route('vendor.index')->with('status', 'Add successful');
     }
 
     /**
@@ -79,15 +81,16 @@ class MasterVendorController extends Controller
      */
     public function update(Request $request, MasterVendor $vendor)
     {
-        MasterVendor::where('id',$vendor->id)
-            ->update([
-            'nama'=> $request->nama,
-            'kode'=> $request->kode,
-            'harga_katering_dasar'=> $request->harga_katering_dasar,
-            'add_on'=> $request->add_on,
-            'harga_add_on'=> $request->harga_add_on,
-        ]);
-        return redirect('/kantin/vendor')->with('status', 'Update successful');
+        // MasterVendor::where('id',$vendor->id)
+        //     ->update([
+        //     'nama'=> $request->nama,
+        //     'kode'=> $request->kode,
+        //     'harga_katering_dasar'=> $request->harga_katering_dasar,
+        //     'add_on'=> $request->add_on,
+        //     'harga_add_on'=> $request->harga_add_on,
+        // ]);
+        $vendor->update($request->all());
+        return redirect()->route('vendor.index')->with('status', 'Update successful');
     }
 
     /**
@@ -99,6 +102,6 @@ class MasterVendorController extends Controller
     public function destroy(MasterVendor $vendor)
     {
         MasterVendor::destroy($vendor->id);
-        return redirect('/kantin/vendor')->with('status', 'Delete successful');
+        return redirect()->route('vendor.index')->with('status', 'Delete successful');
     }
 }
