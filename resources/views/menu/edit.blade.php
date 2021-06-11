@@ -36,6 +36,7 @@
                 <label class="form-label">Hari</label>
                     <br/>
                     @foreach($menu->hari as $value)
+                    <p>{{$menu['hari']}}</p>
                     <div class="form-check form-check-inline">
                         @if ($value === 'senin')
                         <input class="form-check-input" type="checkbox" name="hari[]"  value="$value" checked>

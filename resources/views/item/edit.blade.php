@@ -30,11 +30,10 @@
             @csrf
             <div class="mb-3">
                     <label for="menu_id" class="form-label">List Menu</label>
-                    <!-- <input type="text" name="menu_id" class="form-control" value="{{$item->menu_id}}" id="menu_id" > -->
+                    <!-- <input type="text" name="menu_id" class="form-control" value="{{$item->menu_id}}" id="menu_id"> -->
                     <select class="form-select" name="menu_id" aria-label="Default select example">
-                    <option selected>Daftar Menu</option>
-                    @foreach ($item as $itm)
-                    <option name="menu_id" value="{{$itm->menu_id}}">{{$itm->menu_id}}</option>
+                    @foreach ($data as $dat)
+                    <option name="menu_id" value="{{$dat->id}}">{{$dat->listmenu}}</option>
                     @endforeach
                     </select>
                 </div>

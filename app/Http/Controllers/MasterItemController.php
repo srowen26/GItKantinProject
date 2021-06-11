@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\MasterItem;
+use App\Models\MasterMenu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MasterItemController extends Controller
 {
@@ -15,7 +17,8 @@ class MasterItemController extends Controller
     public function index()
     {
         $item = MasterItem::all();
-        return view('item.index', compact('item'));
+        $data = DB::table('master_data')->get();
+        return view('item.index', compact('data','item'));
     }
 
     /**
@@ -25,9 +28,8 @@ class MasterItemController extends Controller
      */
     public function create()
     {
-        $item = MasterItem::all();
-        $item=$item->unique('menu_id');
-        return view('item.create', compact('item'));
+        $data = DB::table('master_data')->get();
+        return view('item.create', compact('data'));
     }
 
     /**
@@ -64,7 +66,9 @@ class MasterItemController extends Controller
      */
     public function edit(MasterItem $item)
     {
-        return view('item.edit', compact('item'));
+        $data = DB::table('master_data')->get();
+        return view('item.edit', compact('data','item'));
+        // return view('item.edit', compact('item'));
     }
 
     /**

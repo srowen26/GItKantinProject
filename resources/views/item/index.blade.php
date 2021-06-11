@@ -23,7 +23,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/kantin/bagian">Bagian</a>
         </li>
-                <li class="nav-item dropdown">
+          <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Master Data
           </a>
@@ -56,7 +56,11 @@
                     @foreach ($item as $itm)
                     <tr>
                     <th scope="row">{{$itm->id}}</th>
-                        <td>{{$itm->menu_id}}</td>
+                        <td>
+                        @foreach ($data->listmenu as $dat)
+                          {{$dat->listmenu}}
+                        @endforeach
+                        </td>
                         <td>{{$itm->item_desc}}</td>
                         <td>
                             <a href="{{ route('item.edit', $itm->id) }}" class="btn btn-info">Ubah</a>
