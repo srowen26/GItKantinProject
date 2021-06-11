@@ -20,7 +20,7 @@ class CreateMasterDataTable extends Migration
         });
 
         Schema::create('master_item', function (Blueprint $table) {
-            $table->increments('item_id');
+            $table->increments('id');
             $table->foreignId('menu_id')->constrained('master_data');
             $table->string('item');
             $table->timestamps();
@@ -37,6 +37,6 @@ class CreateMasterDataTable extends Migration
     {
         Schema::dropIfExists('master_data');
 
-        Schema::dropIfExists('item_data');
+        Schema::dropIfExists('master_item');
     }
 }

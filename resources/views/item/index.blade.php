@@ -56,10 +56,10 @@
                     @foreach ($item as $itm)
                     <tr>
                     <th scope="row">{{$itm->id}}</th>
-                        <td>
-                        @foreach ($data as $dat)
-                          {{$dat->listmenu}}
-                        @endforeach
+                        <td>{{$itm->menu_id}}
+                        <!-- @foreach ($data as $dat)
+                          {{$itm->menu_id}}
+                        @endforeach -->
                         </td>
                         <td>{{$itm->item_desc}}</td>
                         <td>
