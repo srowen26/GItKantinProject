@@ -17,8 +17,14 @@ class MasterItemController extends Controller
     public function index()
     {
         $item = MasterItem::all();
+        return view('item.index', compact('item'));
+    }
+
+    public function dropDownShow()
+
+    {
         $data = DB::table('master_data')->get();
-        return view('item.index', compact('data','item'));
+        return view('item.index', compact('data'));
     }
 
     /**
@@ -44,7 +50,6 @@ class MasterItemController extends Controller
 
         MasterItem::create($input);
         return redirect()->route('item.index')->with('status', 'Add successful');
-    
     }
 
     /**
@@ -67,7 +72,7 @@ class MasterItemController extends Controller
     public function edit(MasterItem $item)
     {
         $data = DB::table('master_data')->get();
-        return view('item.edit', compact('data','item'));
+        return view('item.edit', compact('data', 'item'));
         // return view('item.edit', compact('item'));
     }
 

@@ -8,15 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class MasterItem extends Model
 {
     use HasFactory;
-    protected $table='master_item';
+    protected $table = 'master_item';
     protected $fillable = [
-        'menu_id',
-        'item_desc',
+        'menu_name',
+        'item',
     ];
-
-    public function data()
-    {
-        return $this->hasOne(MasterData::class);
-    }
-
 }

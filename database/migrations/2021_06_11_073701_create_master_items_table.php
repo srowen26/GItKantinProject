@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMasterDataTable extends Migration
+class CreateMasterItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateMasterDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('master_data', function (Blueprint $table) {
+        Schema::create('master_item', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('listmenu');
+            $table->string('menu_name');
+            $table->string('item');
             $table->timestamps();
         });
-    
     }
 
     /**
@@ -28,6 +28,6 @@ class CreateMasterDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('master_data');
+        Schema::dropIfExists('master_item');
     }
 }

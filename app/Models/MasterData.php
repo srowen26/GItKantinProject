@@ -8,14 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class MasterData extends Model
 {
     use HasFactory;
-    protected $table='master_data';
+    protected $table = 'master_data';
     protected $fillable = [
         'listmenu',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(MasterItem::class);
-    }
-
 }
