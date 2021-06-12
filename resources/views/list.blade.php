@@ -2,24 +2,21 @@
 
 @section('title', 'K4ntin')
 
-@section('container-fluid')
-<div class="container-fluid">
+@section('container')
+<div class="container">
     <div class="row">
             <div class="col-10">
                 <h2 class="mt-2">Test</h2>
-                <select id="select-test"    >
+                <select id="select-test" >
                     <option value="cheese">Cheese</option>
                     <option value="tomatoes">Tomatoes</option>
                     <option value="mozarella">Mozzarella</option>
                     <option value="mushrooms">Mushrooms</option>
                     <option value="pepperoni">Pepperoni</option>
                     <option value="onions">Onions</option>
+
                 </select>
-                <script type="text/javascript">
-                    $(function() {
-                        $('#select-test').searchableOptionList();
-                    });    
-                </script>
+                
             </div>
     </div>
 
