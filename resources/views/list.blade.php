@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+@extends('layout.main')
 
-<body>
-@foreach ($menu as $menu)
-<p>{{$menu->id}}</p>
-<p>{{$menu->list[0]}}</p>
-@endforeach
-{{-- Comment --}}
-</body>
+@section('title', 'K4ntin')
 
+@section('container-fluid')
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-10">
+                <h2 class="mt-2">Test</h2>
+                <select id="select-test"    >
+                    <option value="cheese">Cheese</option>
+                    <option value="tomatoes">Tomatoes</option>
+                    <option value="mozarella">Mozzarella</option>
+                    <option value="mushrooms">Mushrooms</option>
+                    <option value="pepperoni">Pepperoni</option>
+                    <option value="onions">Onions</option>
+                </select>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#select-test').searchableOptionList();
+                    });    
+                </script>
+            </div>
+    </div>
 
-</html>
+</div>
+@endsection

@@ -22,6 +22,10 @@ Route::get('/kantin', function () {
     return view('index');
 });
 
+Route::get('/test', function () {
+    return view('list');
+});
+
 Route::resource('/kantin/vendor',MasterVendorController::class);
 Route::resource('/kantin/menu',MasterMenuController::class);
 Route::resource('/kantin/bagian',MasterBagianController::class);

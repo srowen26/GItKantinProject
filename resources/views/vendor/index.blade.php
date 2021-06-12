@@ -41,7 +41,7 @@
 @section('container')
 <div class="container">
     <div class="row">
-        <div class="col-">
+        <div class="col-10">
             <h2 class="mt-2">Master Tabel Vendor</h2>
             
             <br/>
