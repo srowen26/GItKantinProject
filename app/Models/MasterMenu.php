@@ -37,9 +37,20 @@ class MasterMenu extends Model
         return $this->attributes['menu_utama'] = json_decode($value);
     }
     
+    public function setAddOnAttribute($value)
+    {
+        $this->attributes['menu_add_on'] = json_encode($value);
+    }
+
+    public function getAddOnAttribute($value)
+    {
+        return $this->attributes['menu_add_on'] = json_decode($value);
+    }
+
     protected $casts = [
         'hari' => 'json',
         'menu_utama' => 'json',
+        'menu_add_on' => 'json',
     ];
 
     /*

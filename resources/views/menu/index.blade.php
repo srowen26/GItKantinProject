@@ -66,11 +66,14 @@
                                 {{$value}} 
                             @endforeach
                         </td>  
-                        <td>@foreach($$menu->menu_utama as $value)
+                        <td>@foreach($menu->menu_utama as $value)
                                 {{$value}}<br/>
                             @endforeach
                         </td>
-                        <td>{{$menu->menu_add_on}}</td>
+                        <td>@foreach($menu->menu_add_on as $value)
+                                {{$value}}<br/>
+                            @endforeach
+                        </td>
                         <td>{{$menu->harga_add_on}}</td>
                         <td>
                             <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-info">Ubah</a>

@@ -46,6 +46,7 @@ class MasterMenuController extends Controller
         $input = $request->all();
         $input['hari'] = $request->input('hari');
         $input['menu_utama'] = $request->input('menu_utama');
+        $input['menu_add_on'] = $request->input('menu_add_on');
         MasterMenu::create($input);
 
         
@@ -80,7 +81,8 @@ class MasterMenuController extends Controller
      */
     public function edit(MasterMenu $menu)
     {
-        return view('menu.edit', compact('menu'));
+        $item = DB::table('master_item')->get();
+        return view('menu.edit', compact('menu', 'item'));
     }
 
     /**

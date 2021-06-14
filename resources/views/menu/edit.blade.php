@@ -86,11 +86,24 @@
                 </div>
                 <div class="mb-3">
                     <label for="menu_utama" class="form-label">Menu Utama</label>
-                    <input type="text" name="menu_utama" class="form-control" value="{{$menu->menu_utama}}" id="menu_utama">
+                    <!-- <input type="text" name="menu_utama" class="form-control" value="{{$menu->menu_utama}}" id="menu_utama"> -->
+                    <select id="menu-select" name="menu_utama[]" multiple="multiple">
+                        @foreach ($item as $itm)
+                        <optgroup label="{{ $itm->menu_name }}">
+                            <option value="{{ $itm->menu_name }} - {{ $itm->item }}">{{ $itm->item }}</option>
+                        </optgroup>
+                        @endforeach
                 </div>
                 <div class="mb-3">
                     <label for="menu_add_on" class="form-label">Menu Add On</label>
-                    <input type="text" name="menu_add_on" class="form-control" value="{{$menu->menu_add_on}}" id="menu_add_on">
+                    <!-- <input type="text" name="menu_add_on" class="form-control" value="{{$menu->menu_add_on}}" id="menu_add_on">-->
+                    <select id="add-select" name="menu_add_on[]" multiple="multiple">
+                        @foreach ($item as $itm)
+                        <optgroup label="{{ $itm->menu_name }}">
+                            <option value="{{ $itm->menu_name }} - {{ $itm->item }}">{{ $itm->item }}</option>
+                        </optgroup>
+                        @endforeach
+                    </select> 
                 </div>
                 <div class="mb-3">
                     <label for="harga_add_on" class="form-label">Harga Add On</label>

@@ -26,7 +26,8 @@
     <script type="text/javascript">
         $(function() {
             // initialize sol
-            $('#my-select').searchableOptionList();
+            $('#menu-select').searchableOptionList();
+            $('#add-select').searchableOptionList();
         });
     </script>
 
