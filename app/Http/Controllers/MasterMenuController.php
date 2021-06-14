@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MasterMenu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MasterMenuController extends Controller
 {
@@ -26,7 +27,11 @@ class MasterMenuController extends Controller
      */
     public function create()
     {
-        return view('menu.create');
+        $item = DB::table('master_item')->get();
+        // $item = $item->unique();
+        // $data = DB::table('master_data')->get();
+        return view('menu.create', compact('item'));
+        // return view('menu.create', compact('item', 'data'));
     }
 
     /**
@@ -40,6 +45,7 @@ class MasterMenuController extends Controller
 
         $input = $request->all();
         $input['hari'] = $request->input('hari');
+        $input['menu_utama'] = $request->input('menu_utama');
         MasterMenu::create($input);
 
         

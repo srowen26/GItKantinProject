@@ -28,25 +28,6 @@
             <form method="POST" action="{{ route('menu.store') }}" enctype="multipart/form-data">
                 @csrf
 
-                <select id="my-select" name="character" multiple="multiple">
-                    <optgroup label="The Griffins">
-                        <option value="Peter">Peter Griffin</option>
-                        <option value="Lois">Lois Griffin</option>
-                        <option value="Chris">Chris Griffin</option>
-                        <option value="Meg">Meg Griffin</option>
-                        <option value="Stewie">Stewie Griffin</option>
-                    </optgroup>
-
-                    <optgroup label="Peter's Friends">
-                        <option value="Cleveland">Cleveland Brown</option>
-                        <option value="Joe">Joe Swanson</option>
-                        <option value="Quagmire">Glenn Quagmire</option>
-                    </optgroup>
-
-                    <option value="Evil Monkey">Evil Monkey</option>
-                    <option value="Herbert">John Herbert</option>
-                </select>
-
                 <div class="mb-3">
                     <label for="kode_katering" class="form-label">Kode Katering</label>
                     <input type="text" name="kode_katering" class="form-control" id="kode_katering">
@@ -81,7 +62,15 @@
                 </div>
                 <div class="mb-3">
                     <label for="menu_utama" class="form-label">Menu Utama</label>
-                    <input type="text" name="menu_utama" class="form-control" id="menu_utama">
+                    <!-- <input type="text" name="menu_utama" class="form-control" id="menu_utama"> -->
+                    <select id="my-select" name="menu_utama[]" multiple="multiple">
+                        @foreach ($item as $itm)
+                        <optgroup label="{{ $itm->menu_name }}">
+                            <option value="{{ $itm->menu_name }} - {{ $itm->item }}">{{ $itm->item }}</option>
+                        </optgroup>
+                        @endforeach
+
+                    </select>         
                 </div>
                 <div class="mb-3">
                     <label for="menu_add_on" class="form-label">Menu Add On</label>

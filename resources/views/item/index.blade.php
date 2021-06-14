@@ -42,7 +42,7 @@
 <div class="container">
   <div class="row">
     <div class="col-10">
-      <h2 class="mt-2">Master Tabel Bagian</h2>
+      <h2 class="mt-2">Master Tabel Item</h2>
       <table class="table">
         <thead class="table-dark">
           <tr>
