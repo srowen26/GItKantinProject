@@ -10,16 +10,22 @@
         @csrf
         <div class="mb-3">
           <label for="menu_id" class="form-label">List Menu</label>
-          <select class="form-select" name="menu_name" aria-label="Default select example">
+          <select class="form-select" name="menu_name" aria-label="Menu select" required>
             <option selected>Daftar Menu</option>
             @foreach ($data as $dat)
             <option>{{$dat->listmenu}}</option>
             @endforeach
           </select>
+          <div class="invalid-feedback">
+              Mohon pilih salah satu.
+          </div>
         </div>
         <div class="mb-3">
           <label for="item" class="form-label">Deskripsi Item</label>
-          <input type="text" name="item" class="form-control" id="item">
+          <input type="text" name="item" class="form-control" id="item" required>
+          <div class="invalid-feedback">
+              Mohon deskripsikan menu di atas.
+          </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

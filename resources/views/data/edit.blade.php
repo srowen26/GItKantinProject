@@ -12,7 +12,10 @@
             @csrf
             <div class="mb-3">
                     <label for="listmenu" class="form-label">List Menu</label>
-                    <input type="text" name="listmenu" class="form-control" value="{{$data->listmenu}}" id="listmenu" >
+                    <input type="text" name="listmenu" class="form-control" value="{{$data->listmenu}}" id="listmenu" required>
+                    <div class="invalid-feedback">
+                        Mohon masukan jenis menu (menu atau add-on).
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form> 
