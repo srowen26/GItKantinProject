@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ApiMenuController;
 use App\Http\Controllers\API\ApiVendorController;
 use App\Http\Controllers\API\ApiBagianController;
+use App\Http\Controllers\API\ApiUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,6 @@ Route::post('kantin/bagian/add', [ApiBagianController::class, 'createBagian']);
 Route::get('kantin/bagian/{id}', [ApiBagianController::class, 'showBagian']);
 Route::post('kantin/bagian/update', [ApiBagianController::class, 'updateBagian']);
 Route::delete('kantin/bagian/{id}', [ApiBagianController::class, 'deleteBagian']);
+
+Route::get('kantin/user', [ApiUserController::class, 'getUserData']);
+Route::post('kantin/cek', [ApiUserController::class, 'userLogin']);

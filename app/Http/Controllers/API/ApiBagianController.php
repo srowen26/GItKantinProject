@@ -89,7 +89,7 @@ class ApiBagianController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\MasterBagian  $masterBagian
      * @return \Illuminate\Http\Response
