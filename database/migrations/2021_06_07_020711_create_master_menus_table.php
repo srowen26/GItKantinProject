@@ -20,6 +20,8 @@ class CreateMasterMenusTable extends Migration
             $table->string('menu_utama');
             $table->string('menu_add_on');
             $table->string('harga_add_on');
+            $table->string('nama');
+            $table->integer('nrp');
             $table->timestamps();
         });
     }
