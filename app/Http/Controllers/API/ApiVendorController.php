@@ -133,7 +133,14 @@ class ApiVendorController extends Controller
         }
         else {
 
-            $ven = $vendor->update($data);
+            // $ven = $vendor->update($data);
+            $ven = MasterVendor::whereId($request->input('id'))->update([
+                'nama'     => $request->input('nama'),
+                'kode'   => $request->input('kode'),
+                'harga_katering_dasar'   => $request->input('harga_katering_dasar'),
+                'add_on'   => $request->input('add_on'),
+                'harga_add_on'   => $request->input('harga_add_on'),
+            ]);
 
             if ($ven) {
                 return response()->json([
