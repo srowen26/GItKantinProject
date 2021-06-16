@@ -107,9 +107,10 @@ class ApiVendorController extends Controller
      */
     public function updateVendor(Request $request, MasterVendor $vendor)
     {
-        $data = $request->all();
 
-        $validator = Validator::make($data, [
+        $validator = Validator::make(
+            $request->all(),
+            [
                 'nama' => 'required|max:255',
                 'kode' => 'required|size:5',
                 'harga_katering_dasar' => 'required',
@@ -121,20 +122,18 @@ class ApiVendorController extends Controller
                 'kode.size' => 'Kode Vendor Harus 5 Buah',
                 'harga_katering_dasar.required' => 'Harap Masukan Harga Dasar Katering',
                 'add_on.required' => 'Harap Masukan Menu Tambahan',
-                'harga_add_on.required' => 'Harap Masukan Harga Menu Tambahan'
+                'harga_add_on.required' => 'Harap Masukan Harga Menu Tambahan',
             ]
         );
 
         if ($validator->fails()) {
             return response()->json([
-                'error' => true,
-                'message' => $validator->errors()
-            ],422);
-        }
-        else {
+                'success' => false,
+                'message'    => $validator->errors()
+            ], 401);
+        } else {
 
-            // $ven = $vendor->update($data);
-            $ven = MasterVendor::whereId($request->input('id'))->update([
+            $vendor = MasterVendor::whereId($request->input('id'))->update([
                 'nama'     => $request->input('nama'),
                 'kode'   => $request->input('kode'),
                 'harga_katering_dasar'   => $request->input('harga_katering_dasar'),
@@ -142,20 +141,19 @@ class ApiVendorController extends Controller
                 'harga_add_on'   => $request->input('harga_add_on'),
             ]);
 
-            if ($ven) {
+            if ($vendor) {
                 return response()->json([
-                    'success' => true, 
-                    'message' => 'Updated Successfully!',
+                    'success' => true,
+                    'message' => 'Menu Berhasil Diupdate!',
                 ], 200);
-            }
-            else {
+            } else {
                 return response()->json([
-                    'success' => false, 
-                    'message' => 'Update Failed!',
+                    'success' => false,
+                    'message' => 'Menu Gagal Diupdate!',
                 ], 401);
             }
-
         }
+
     }
 
     /**
