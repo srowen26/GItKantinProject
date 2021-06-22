@@ -9,7 +9,6 @@ class MasterUser extends Model
 {
     use HasFactory;
     protected $connection = 'pgsql2';
-    protected $table = 'master_users';
+    protected $table = 'users';
     protected $guarded = [];
-
 }
