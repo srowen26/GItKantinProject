@@ -21,27 +21,27 @@
                     <label class="form-label">Hari</label>
                     <br />
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="senin">
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Senin">
                         <label class="form-check-label">Senin</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="selasa">
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Selasa">
                         <label class="form-check-label">Selasa</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="rabu">
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Rabu">
                         <label class="form-check-label">Rabu</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="kamis">
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Kamis">
                         <label class="form-check-label">Kamis</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="jumat">
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Jumat">
                         <label class="form-check-label">Jumat</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="sabtu">
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Sabtu">
                         <label class="form-check-label">Sabtu</label>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                     <label for="harga_add_on" class="form-label">Harga Add On</label>
                     <input type="text" name="harga_add_on" class="form-control" id="harga_add_on" required>
                     <div class="invalid-feedback">
-                            Mohon masukan harga add-on.
+                        Mohon masukan harga add-on.
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

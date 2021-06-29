@@ -18,6 +18,9 @@ use App\Http\Controllers\API\ApiUserController;
 |
 */
 
+Route::get('kantin/user', [ApiUserController::class, 'getUserData']);
+Route::get('kantin/user2', [ApiUserController::class, 'getUser']);
+Route::post('kantin/login', [ApiUserController::class, 'loginService']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -39,6 +42,3 @@ Route::post('kantin/bagian/add', [ApiBagianController::class, 'createBagian']);
 Route::get('kantin/bagian/{id}', [ApiBagianController::class, 'showBagian']);
 Route::post('kantin/bagian/update', [ApiBagianController::class, 'updateBagian']);
 Route::delete('kantin/bagian/{id}', [ApiBagianController::class, 'deleteBagian']);
-
-Route::get('kantin/user', [ApiUserController::class, 'getUserData']);
-Route::post('kantin/login', [ApiUserController::class, 'login']);

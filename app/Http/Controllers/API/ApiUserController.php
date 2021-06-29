@@ -4,11 +4,15 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\MasterUser;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Exception;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Hash;
 
 class ApiUserController extends Controller
 {
@@ -20,10 +24,22 @@ class ApiUserController extends Controller
     public function getUserData()
     {
 
-        $user = MasterUser::latest()->get();
+        //   $user = MasterUser::latest()->get();
+        $user = DB::connection('pgsql2')->table('users')->get();
         return response([
             'success' => true,
             'message' => 'List All User',
+            'data' => $user
+        ], 200);
+    }
+
+    public function getUser()
+    {
+
+        $user = User::latest()->get();
+        return response([
+            'success' => true,
+            'message' => 'List All User db central kantin',
             'data' => $user
         ], 200);
     }
@@ -74,61 +90,6 @@ class ApiUserController extends Controller
         }
     }
 
-    public function login(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'email' => ['required', 'email', 'string'],
-            'password' => ['required', 'string'],
-            'remember_me' => ['boolean']
-        ]);
-
-        if ($validator->fails()) {
-            return response()
-                ->json([
-                    'error' => true,
-                    'validations' => $validator->errors()
-                ], 422);
-        }
-
-        $credentials = request(['email', 'password']);
-        if (!Auth::attempt($credentials)) {
-            return response()
-                ->json([
-                    'error' => true,
-                    'message' => 'Email atau Password salah'
-                ], 401);
-        }
-
-
-        $data = MasterUser::where('email', '=', $request->email)->first();
-        if ($data) {
-            return response()
-                ->json([
-                    'success' => true,
-                    'data_user' => [
-                        'id' => $data->id,
-                        'email' => $data->email,
-                        'password' => $data->password,
-                        'name' => $data->name,
-                        'nrp' => $data->nrp,
-                    ],
-
-                ]);
-        } else {
-            return response()
-                ->json([
-                    'success' => true,
-                    'data_user' => [
-                        'id' => null,
-                        'email' => null,
-                        'emaipasswordl' => null,
-                        'name' => null,
-                        'nrp' => null,
-                    ],
-                ]);
-        }
-    }
-
     public function logout()
     {
         return response()->json([
@@ -137,49 +98,54 @@ class ApiUserController extends Controller
         ]);
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function loginService(Request $request)
     {
-        //
-    }
+        $validate = Validator::make($request->all(), [
+            'email' => 'required',
+            'password' => 'required',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\MasterUser  $masterUser
-     * @return \Illuminate\Http\Response
-     */
-    public function show(MasterUser $masterUser)
-    {
-        //
-    }
+        if ($validate->fails()) {
+            $respon = [
+                'status' => 'error',
+                'msg' => 'Validator error',
+                'errors' => $validate->errors(),
+                'content' => null,
+            ];
+            return response()->json($respon, 200);
+        } else {
+            $credentials = request(['email', 'password']);
+            if (!Auth::attempt($credentials)) {
+                $respon = [
+                    'status' => 'error',
+                    'msg' => 'Unathorized',
+                    'errors' => null,
+                    'content' => null,
+                ];
+                return response()->json($respon, 401);
+            }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MasterUser  $masterUser
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, MasterUser $masterUser)
-    {
-        //
-    }
+            // $user = User::where('email', $request->email)->first();
+            $user = DB::connection('pgsql2')->table('users')->where('email', $request->email)->first();
+            if (!Hash::check($request->password, $user->password, [])) {
+                throw new Exception('Error in Login');
+            }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\MasterUser  $masterUser
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(MasterUser $masterUser)
-    {
-        //
+            $tokenResult = $user->createToken('token-auth')->plainTextToken;
+            $respon = [
+                'status' => 'success',
+                'msg' => 'Login successfully',
+                'errors' => null,
+                'content' => [
+                    'status_code' => 200,
+                    'access_token' => $tokenResult,
+                    'token_type' => 'Bearer',
+                    'nama' => $user->name,
+                    'email' => $user->email,
+                    'password' => $user->password,
+                ]
+            ];
+            return response()->json($respon, 200);
+        }
     }
 }
