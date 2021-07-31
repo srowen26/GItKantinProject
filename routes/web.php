@@ -52,3 +52,11 @@ Route::resource('/kantin/item',MasterItemController::class);
 // Route::post('/kantin/bagian',[MasterBagianController::class,'store']); 
 // Route::delete('/kantin/bagian/delete/{bagian}',[MasterBagianController::class,'destroy']); 
 // Route::patch('/kantin/bagian/{bagian}',[MasterBagianController::class,'update']); 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

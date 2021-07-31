@@ -29,43 +29,43 @@
                     ?>
 
                     @foreach($menu->hari as $value)
-                    @if($value == 'senin')
+                    @if($value == 'Senin')
                     @php $senin = $value @endphp
-                    @elseif($value == 'selasa')
+                    @elseif($value == 'Selasa')
                     @php $selasa = $value @endphp
-                    @elseif($value == 'rabu')
+                    @elseif($value == 'Rabu')
                     @php $rabu = $value @endphp
-                    @elseif($value == 'kamis')
+                    @elseif($value == 'Kamis')
                     @php $kamis = $value @endphp
-                    @elseif($value == 'jumat')
+                    @elseif($value == 'Jumat')
                     @php $jumat = $value @endphp
-                    @elseif($value == 'sabtu')
+                    @elseif($value == 'Sabtu')
                     @php $sabtu = $value @endphp
                     @endif
                     @endforeach
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="senin" {{$senin == 'senin' ? 'checked' : null}}>
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Senin" {{$senin == 'Senin' ? 'checked' : null}}>
                         <label class="form-check-label">Senin</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="selasa" {{$selasa == 'selasa' ? 'checked' : null}}>
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Selasa" {{$selasa == 'Selasa' ? 'checked' : null}}>
                         <label class="form-check-label">Selasa</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="rabu" {{$rabu == 'rabu' ? 'checked' : null}}>
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Rabu" {{$rabu == 'Rabu' ? 'checked' : null}}>
                         <label class="form-check-label">Rabu</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="kamis" {{$kamis == 'kamis' ? 'checked' : null}}>
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Kamis" {{$kamis == 'Kamis' ? 'checked' : null}}>
                         <label class="form-check-label">Kamis</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="jumat" {{$jumat == 'jumat' ? 'checked' : null}}>
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Jumat" {{$jumat == 'Jumat' ? 'checked' : null}}>
                         <label class="form-check-label">Jumat</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="hari[]" value="sabtu" {{$sabtu == 'sabtu' ? 'checked' : null}}>
+                        <input class="form-check-input" type="checkbox" name="hari[]" value="Sabtu" {{$sabtu == 'Sabtu' ? 'checked' : null}}>
                         <label class="form-check-label">Sabtu</label>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                     <label for="harga_add_on" class="form-label">Harga Add On</label>
                     <input type="text" name="harga_add_on" class="form-control" value="{{$menu->harga_add_on}}" id="harga_add_on" required>
                     <div class="invalid-feedback">
-                            Mohon masukan harga add-on.
+                        Mohon masukan harga add-on.
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
