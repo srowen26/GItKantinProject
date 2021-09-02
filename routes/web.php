@@ -53,6 +53,10 @@ Route::resource('/kantin/item',MasterItemController::class);
 // Route::delete('/kantin/bagian/delete/{bagian}',[MasterBagianController::class,'destroy']); 
 // Route::patch('/kantin/bagian/{bagian}',[MasterBagianController::class,'update']); 
 
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/kantin', function () {
     return view('index');
-})->name('dashboard');
+});
